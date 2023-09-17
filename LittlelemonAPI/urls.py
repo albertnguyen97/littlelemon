@@ -12,6 +12,12 @@ urlpatterns = [
     path('api-token-auth', obtain_auth_token),
     path('throttle-check', views.NonUserView.as_view()),
     path('throttle-check-auth', views.CustomerView.as_view()),
-    path('groups/manager/users', views.ManagerAdminView.as_view()),
-    path('ratings', views.RatingsView.as_view())
+    path('groups/manager/users', views.ManagerUsersView.as_view()),
+    path('ratings', views.RatingsView.as_view()),
+    path('groups/manager/users/<int:pk>/', views.ManagerSingleUserView.as_view()),
+    path('groups/delivery-crew/users/', views.Delivery_crew_management.as_view()),
+    path('groups/delivery-crew/users/<int:pk>/', views.Delivery_crew_management_single_view.as_view()),
+    path('cart/menu-items/', views.Customer_Cart.as_view()),
+    path('orders/', views.Orders_view.as_view()),
+    path('orders/<int:pk>/', views.Single_Order_view.as_view()),
 ]

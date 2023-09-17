@@ -104,6 +104,7 @@ class RatingSerializer(serializers.ModelSerializer):
         'rating': {'min_value': 0, 'max_value':5},
     }
 
+
 class UserSerializer(serializers.ModelSerializer):
     Date_Joined = serializers.SerializerMethodField()
     date_joined = serializers.DateTimeField(write_only=True, default=datetime.now)
