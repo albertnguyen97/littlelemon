@@ -53,7 +53,7 @@ class Cart(models.Model):
 
 class Order(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    delivery_crew = models.ForeignKey(User, on_delete=models.SET_NULL)
+    delivery_crew = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, related_name='orders_as_delivery_crew')
     is_shipped = models.BooleanField(default=False)
     total_amount = models.DecimalField(max_digits=6, decimal_places=2)
 
