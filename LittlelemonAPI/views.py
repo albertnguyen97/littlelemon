@@ -59,7 +59,7 @@ class SecretView(generics.ListCreateAPIView):
 
 class ManagerView(generics.ListCreateAPIView):
     authentication_classes = [TokenAuthentication]  # Apply TokenAuthentication
-    permission_classes = [IsAuthenticated, IsAdminUser]  # Ensure the user is authenticated
+    permission_classes = [IsAuthenticated]  # Ensure the user is authenticated
 
     def get(self, request, **kwargs):
         if request.user.groups.filter(name="Manager").exists():
@@ -94,6 +94,7 @@ class ManagerAdminView(generics.CreateAPIView, generics.DestroyAPIView):
     def destroy(self, request, *args, **kwargs):
         return self.perform_action('remove')
 
+
 class NonUserView(generics.ListCreateAPIView):
     throttle_classes = [AnonRateThrottle]
     queryset = Category.objects.all()
@@ -121,7 +122,7 @@ class RatingsView(generics.ListCreateAPIView):
     serializer_class = RatingSerializer
 
     def get_permissions(self):
-        if(self.request.method=='GET'):
+        if self.request.method == 'GET':
             return []
 
         return [IsAuthenticated()]
