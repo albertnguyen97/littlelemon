@@ -1,6 +1,24 @@
 {% load static %}
 <header>
-  <img src="{% static 'img/logo.png' %}" />
+    <div class="navbar">
+      <div class="navbar-content">
+                    <div class="language-switch">
+                        <label for="language-select">Language:</label>
+                        <select id="language-select">
+                            <option value="vi">Vietnamese</option>
+                            <option value="en">English</option>
+                        </select>
+                    </div>
+<!--                <div class="logo">Your Logo</div>-->
+                <div class="navbar-links">
+                    <a href="#" class="notification"><i class="fas fa-bell"></i></a>
+                    <a href="#" class="account">sign in</a>
+                    <a>/</a>
+                    <a href="#" class="account">sign up</a>
+                </div>
+            </div>
+    </div>
+  <img src="{% static 'img/sushiheader.png' %}" />
 </header>
 <nav>
   <ul>

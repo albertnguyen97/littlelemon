@@ -47,12 +47,63 @@ header img {
 
 
 nav {
-    background-color: #495E57;
+    background-color: darkred;
     margin-top: 1rem;
     margin-bottom: 1rem;
-    margin-bottom: 0px;
 }
 
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    color: #fff;
+    padding: 10px 0;
+}
+
+.navbar-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    padding-inline-start: 0rem;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.navbar-links {
+    display: flex;
+    align-items: center;
+}
+
+.notification, .account {
+    color: darkred;
+    text-decoration: none;
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+.language-switch {
+    color: black;
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+}
+
+label {
+    margin-right: 10px;
+}
+
+#language-select {
+    background-color: white;
+    color: black;
+    border: none;
+    font-size: 16px;
+}
 nav ul {
     list-style: none;
     font-size: 1.5rem;
