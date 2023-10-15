@@ -1,7 +1,10 @@
 # from django.http import HttpResponse
+from datetime import datetime
+
 from django.shortcuts import render
 from .forms import BookingForm
-from .models import Menu
+from .models import Menu, Booking
+from django.core import serializers
 
 
 # Create your views here.
@@ -23,7 +26,13 @@ def book(request):
     return render(request, 'book.html', context)
 
 
-# Add your code here to create new views
+def bookings(request):
+    date = request.GET.get('date', datetime.today().date())
+    bookings = Booking.objects.all().filter(reservation_date=date)
+    booking_json = serializers.serialize('json', bookings)
+    return render(request, 'bookings.html', {"bookings": booking_json})
+
+
 def menu(request):
     menu_data = Menu.objects.all()
     main_data = {"menu": menu_data}
@@ -36,3 +45,4 @@ def display_menu_item(request, pk=None):
     else:
         menu_item = ""
     return render(request, 'menu_item.html', {"menu_item": menu_item})
+
